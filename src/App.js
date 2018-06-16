@@ -17,12 +17,23 @@ function shuffleFriends(array) {
   return array;
 }
 
+// phrases to be generated when user answers correctly
+const wordArray = [
+  "Yer on your way!",
+  "Expelliarmus!",
+  "Good work, Harry!",
+  "Way to go!",
+  "You're the chosen one!",
+  "Mum and Dad would be so proud!",
+];
+
 class App extends Component {
   // Set this.state
   state = {
     friends,
     currentScore: 0,
     topScore: 0,
+    color: "",
     rightWrong: "",
     clicked: [],
   };
@@ -32,35 +43,38 @@ class App extends Component {
       this.handleIncrement();
       this.setState({ clicked: this.state.clicked.concat(id) });
     } else {
-      this.handleReset();
+      this.reset();
     }
   };
 
   handleIncrement = () => {
     const newScore = this.state.currentScore + 1;
+    let rightWord = wordArray[Math.floor(Math.random() * wordArray.length)];
     this.setState({
       currentScore: newScore,
-      rightWrong: "",
+      rightWrong: rightWord,
+      color: "green",
     });
     if (newScore >= this.state.topScore) {
       this.setState({ topScore: newScore });
     } else if (newScore === 12) {
       this.setState({ rightWrong: "You win!" });
     }
-    this.handleShuffle();
+    this.shuffle();
   };
 
-  handleReset = () => {
+  reset = () => {
     this.setState({
       currentScore: 0,
       topScore: this.state.topScore,
-      rightWrong: "Glaven!",
+      color: "red",
+      rightWrong: "Avada Kedavra! Voldemort got you :(",
       clicked: [],
     });
-    this.handleShuffle();
+    this.shuffle();
   };
 
-  handleShuffle = () => {
+  shuffle = () => {
     let shuffledFriends = shuffleFriends(friends);
     this.setState({ friends: shuffledFriends });
   };
@@ -71,6 +85,7 @@ class App extends Component {
         <Nav
           title="Wizarding World of Clicky Game"
           score={this.state.currentScore}
+          color={this.state.textColor}
           topScore={this.state.topScore}
           rightWrong={this.state.rightWrong}
         />
@@ -87,7 +102,7 @@ class App extends Component {
                   key={friend.id}
                   handleClick={this.handleClick}
                   handleIncrement={this.handleIncrement}
-                  handleReset={this.handleReset}
+                  reset={this.reset}
                   handleShuffle={this.handleShuffle}
                   id={friend.id}
                   image={friend.image}

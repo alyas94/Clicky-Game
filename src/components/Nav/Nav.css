@@ -1,19 +1,24 @@
+@import url(https://fonts.googleapis.com/css?family=Boogaloo|Fredericka+the+Great|Poiret+One);
+
 nav {
   width: 100%;
   font-size: 2rem;
   color: #fff;
   margin-bottom: 50px;
-  background-color: green;
-  height: auto;
+  background-color: grey;
+  background-image: url(https://static.vecteezy.com/system/resources/previews/000/117/524/non_2x/vector-harry-potter-magic-pattern.jpg);
+  background-repeat: repeat;
+  /* height: auto; */
 }
 
 a {
-  color: #fed420;
+  color: white;
+  font-family: "Poiret One", cursive;
 }
 
 a:hover {
-  color: #fed420;
   text-decoration: none;
+  color: rgb(62, 228, 253);
 }
 
 nav li {
@@ -34,4 +39,11 @@ ul {
   #top-sco {
     font-size: 2rem;
   }
+}
+
+#score {
+  font-family: "Boogaloo", cursive;
+}
+#right-wrong {
+  font-family: "Fredericka the Great", cursive;
 }
