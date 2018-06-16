@@ -91,7 +91,7 @@ class App extends Component {
         />
 
         <Title>
-          Click on each person, but don't click on the same one twice or else!
+          Click on each character only one time! Don't let Voldemort get you!
         </Title>
 
         <Container>

@@ -5,7 +5,7 @@ const Nav = props => (
   <nav>
     <ul>
       <li className="brand animated lightSpeedIn">
-        <a href="/clicky-game/">{props.title}</a>
+        <a href="#">Wizarding World of Clicks</a>
       </li>
 
       <li id="right-wrong" style={{ color: props.textColor }}>
@@ -13,7 +13,7 @@ const Nav = props => (
       </li>
 
       <li id="score">
-        Current Score: {props.score} || Top Score: {props.topScore}
+        Score: {props.score} || Top Score: {props.topScore}
       </li>
     </ul>
   </nav>
